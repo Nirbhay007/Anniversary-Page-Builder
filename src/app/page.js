@@ -73,6 +73,7 @@ export default function CreateAnniversaryPage() {
         title: "Our Anniversary",
         date: "",
         venue: "",
+        venueMapUrl: "",
         hosts: "",
         message: "",
         malePhotoUrl: "",
@@ -150,6 +151,18 @@ export default function CreateAnniversaryPage() {
                                 placeholder="e.g., The Grand Palace"
                             />
                         </div>
+                    </div>
+
+                    <div>
+                        <label className="block text-sm font-medium text-gray-300 mb-1">Venue Map URL (Optional)</label>
+                        <input
+                            type="url"
+                            value={formData.venueMapUrl}
+                            onChange={(e) => setFormData({ ...formData, venueMapUrl: e.target.value })}
+                            className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-amber-500 outline-none"
+                            placeholder="e.g., https://maps.google.com/..."
+                        />
+                        <p className="text-xs text-gray-400 mt-1">Add a Google Maps link or any map service URL to help guests find the venue</p>
                     </div>
 
                     <div>

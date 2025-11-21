@@ -180,6 +180,7 @@ export default function AnniversaryContainer({ data }) {
                             title={data?.title}
                             date={data?.date}
                             venue={data?.venue}
+                            venueMapUrl={data?.venueMapUrl}
                             hosts={data?.hosts}
                         />
 
