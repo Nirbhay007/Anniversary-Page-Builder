@@ -1,0 +1,34 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("PRISMA_DATABASE_URL") //  Accelerate for the app (pooling & caching)
+  directUrl = env("POSTGRES_URL")       //  Direct connection for migrations
+}
+
+model AnniversaryPage {
+  id           String   @id @default(cuid())
+  title        String
+  date         DateTime
+  venue        String
+  hosts        String
+  malePhotoUrl String
+  femalePhotoUrl String
+  message      String?
+  theme        String   @default("cinematic")
+  createdAt    DateTime @default(now())
+  photos       AnniversaryPhoto[]
+}
+
+model AnniversaryPhoto {
+  id              String          @id @default(cuid())
+  url             String
+  order           Int             @default(0)
+  anniversaryPageId String
+  anniversaryPage AnniversaryPage @relation(fields: [anniversaryPageId], references: [id], onDelete: Cascade)
+}
