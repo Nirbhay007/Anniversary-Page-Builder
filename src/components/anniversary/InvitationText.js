@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { MapPin } from "lucide-react";
 
-export default function InvitationText({ title, date, venue, hosts }) {
+export default function InvitationText({ title, date, venue, venueMapUrl, hosts }) {
     const text = "You are invited...";
 
 
@@ -45,6 +46,29 @@ export default function InvitationText({ title, date, venue, hosts }) {
                 <p className="text-xl md:text-2xl font-playfair text-rose-200 italic drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
                     {venue || "Venue TBD"}
                 </p>
+
+                {/* Map Link with Catchy Line */}
+                {venueMapUrl && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 3.5, duration: 0.8 }}
+                        className="mt-4"
+                    >
+                        <a
+                            href={venueMapUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group"
+                        >
+                            <MapPin className="w-5 h-5 group-hover:animate-bounce" />
+                            <span className="text-sm md:text-base">Find Your Way to Celebrate With Us</span>
+                        </a>
+                        <p className="text-xs md:text-sm text-amber-200 mt-2 font-light italic">
+                            Let the journey to joy begin here ✨
+                        </p>
+                    </motion.div>
+                )}
 
                 <div className="mt-10 pt-6 border-t border-amber-400/30">
                     <p className="text-sm text-amber-300 uppercase tracking-[0.3em] mb-3 font-semibold">Hosted By</p>

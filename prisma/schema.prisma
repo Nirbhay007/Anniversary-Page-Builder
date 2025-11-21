@@ -16,6 +16,7 @@ model AnniversaryPage {
   title        String
   date         DateTime
   venue        String
+  venueMapUrl  String?
   hosts        String
   malePhotoUrl String
   femalePhotoUrl String

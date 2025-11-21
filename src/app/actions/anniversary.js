@@ -8,6 +8,7 @@ export async function createAnniversaryPage(formData) {
     const title = formData.get("title");
     const date = new Date(formData.get("date"));
     const venue = formData.get("venue");
+    const venueMapUrl = formData.get("venueMapUrl");
     const hosts = formData.get("hosts");
     const message = formData.get("message");
     const malePhotoUrl = formData.get("malePhotoUrl");
@@ -26,6 +27,7 @@ export async function createAnniversaryPage(formData) {
                 title,
                 date,
                 venue,
+                venueMapUrl: venueMapUrl || null,
                 hosts,
                 message,
                 malePhotoUrl,
